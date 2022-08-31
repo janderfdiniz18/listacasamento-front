@@ -1,0 +1,37 @@
+
+.example-form {
+  min-width: 150px;
+  width: 100%;
+}
+
+  .example-full-width {
+    width: 100%;
+  }
+
+  .example-right-align {
+    text-align: right;
+  }
+
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+.input-width-half{
+  width: 60%;
+}
+
+.input-width-prod{
+  width: 45%;
+}
+
+.input-width-add{
+  width: 8%;
+}
+
+
+.input-right{
+  width: 35%;
+  padding-left: 5%;
+}
+

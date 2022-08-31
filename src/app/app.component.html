@@ -1,0 +1,68 @@
+
+<mat-drawer-container class="example-container" autosize>
+
+  <mat-drawer #drawer class="example-sidenav" mode="over">
+    <p class="menu-icon">
+      <a mat-list-item routerLink="/" style="text-decoration: none;">
+        DNZ <mat-icon>home</mat-icon>
+      </a>
+    </p>
+    <p>
+      <a mat-list-item routerLink="/pedidos">
+        Pedidos
+      </a>
+    </p>
+    <p>
+      <a mat-list-item routerLink="/Clientes">
+        Clientes
+      </a>
+    </p>
+    <p>
+      <a mat-list-item routerLink="/produtos">
+        Produtos
+      </a>
+    </p>
+    <p>
+      <a mat-list-item routerLink="/enderecos">
+        Endereços
+      </a>
+    </p>
+    <p>
+      <a mat-list-item routerLink="/enderecos">
+        Estoque
+      </a>
+    </p>
+    <p>
+      <a mat-list-item routerLink="/enderecos">
+        Fiados
+      </a>
+    </p>
+    <p>
+      <a mat-list-item routerLink="/enderecos">
+        Despesas
+      </a>
+    </p>
+  </mat-drawer>
+  <mat-toolbar class="tool-bar-fixed">
+    <mat-toolbar-row>
+      <button mat-icon-button class="example-icon" (click)="drawer.toggle()"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+      <button mat-raised-button color="primary">Primary</button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet>
+    <app-lista-convidados></app-lista-convidados>
+  </router-outlet>
+  <!-- <div class="example-sidenav-content">
+    <button type="button" mat-button >
+      Toggle sidenav
+    </button>
+  </div> -->
+
+</mat-drawer-container>
