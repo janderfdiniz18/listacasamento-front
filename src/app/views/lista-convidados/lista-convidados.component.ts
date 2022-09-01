@@ -32,6 +32,10 @@ export class ListaConvidadosComponent implements OnInit {
       convidado:['', [Validators.required]]
     });
     this.getLista();
+    const listaC = this.rest.getListarConvidados().subscribe(data =>{
+      console.log(data)  
+    });
+
   }
 
   getLista(){
