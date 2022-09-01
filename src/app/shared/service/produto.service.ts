@@ -3,16 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Produto } from './model/produto.model';
 import { ResponsePageable } from './model/responsePageable.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
 
-  apiUrl= 'http://localhost:8080';
+  apiUrl= environment.api;
   httpOptions={
     headers: new HttpHeaders({
-      'Content-type': 'application-json'
+      'Content-type': 'application/json'
     })
   };
 
