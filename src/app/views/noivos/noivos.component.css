@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 20%;
+  }
+  
+  .matChip{
+    background-color: #90CAF9;
+    color: rgba(0, 0, 0, .5);
+  }
+  .example-container {
+    height: 450px;
+    overflow: auto;
+  }
+
+  .table-space{
+    padding-top: 5%;
+    padding-left: 9%;
+    padding-right: 2%;
+    width: 85%;
+  }
