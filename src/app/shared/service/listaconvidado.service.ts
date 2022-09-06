@@ -24,11 +24,17 @@ export class ListaconvidadoService {
   }
 
   public getListaConvidado(codigo: string): Observable<any>{
-    let completeUrl = this.apiUrl + '/lista-casamento'
-    return this.httpClient.get<any>(completeUrl + '?codigo=' + codigo);
+    console.log(codigo);
+    let completeUrl = this.apiUrl + '/lista-casamento/convidados/'
+    return this.httpClient.get<any>(completeUrl + codigo);
   }
-  public getListarConvidados(): Observable<any>{
-    let completeUrl = this.apiUrl + '/lista-casamento'
-    return this.httpClient.get<any>(completeUrl);
+  public getListaConvidadosNoivos(codigo: string): Observable<any>{
+    console.log(codigo);
+    let completeUrl = this.apiUrl + '/lista-casamento/noivos/'
+    return this.httpClient.get<any>(completeUrl + codigo);
   }
+  // public getListarConvidados(): Observable<any>{
+  //   let completeUrl = this.apiUrl + '/lista-casamento'
+  //   return this.httpClient.get<any>(completeUrl);
+  // }
 }

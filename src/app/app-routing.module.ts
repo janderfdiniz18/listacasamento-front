@@ -5,11 +5,11 @@ import { NoivosComponent } from './views/noivos/noivos.component';
 const routes: Routes = [
 
   {
-     path: 'Lista',
+     path: 'lista/:codigo',
      component: ListaConvidadosComponent,
   },
   {
-    path: 'ListaNoivos',
+    path: 'noivos',
     component: NoivosComponent,
  }
 ];

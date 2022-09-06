@@ -8,25 +8,23 @@
         </ng-container>
         <ng-container matColumnDef="Status" >
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-            <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.statusConfirmacao}} </td>
         </ng-container>
         <ng-container matColumnDef="Codigo" >
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo </th>
             <td mat-cell *matCellDef="let row"> {{row.codigo}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="DataConfirmacao" >
+        <!-- <ng-container matColumnDef="DataConfirmacao" >
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Data Confirmação </th>
             <td mat-cell *matCellDef="let row"> {{row.dataConfirmacao}} </td>
-        </ng-container>
-        <!-- <ng-container matColumnDef="numero">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Número </th>
-            <td mat-cell *matCellDef="let row"> {{row.clienteDTO.numeroResidencia}} </td>
+        </ng-container> -->
+        <ng-container matColumnDef="Link">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Link </th>
+            <td mat-cell *matCellDef="let row"> www.casamentojandereellen.com.br/lista/{{row.codigo}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="nome">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
-            <td mat-cell *matCellDef="let row"> {{row.clienteDTO.nome}} </td>
+        <!-- <ng-container matColumnDef="nome">enteDTO.nome}} </td>
         </ng-container> -->
 
         <!-- Name Column -->

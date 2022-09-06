@@ -2,18 +2,18 @@
 <section class="page-section" id="services">
     <form class="example-form" [formGroup]="convidadoListaForm">
         <div class="container">
-            <mat-card *ngFor="let convidado of lista; let i = index">
+            <mat-card>
                 <mat-form-field class="input-right">
                     <mat-label>Nome</mat-label>
                     <input matInput #endereco [formControl]="nomeConvidado" matInput type="text">
                 </mat-form-field>
                 <mat-form-field floatLabel="always" class="input-right">
-                    <input matInput type="text" name="nomeConvidado" disabled value="{{convidado.nomeConvidado}}">
+                    <input matInput type="text" name="nomeConvidado" >
                 </mat-form-field>
  <!-- <mat-form-field floatLabel="always" class="input-right"> -->
                 <section class="example-section" >
-                    <mat-checkbox id="{{i}}" name="{{i}}" class="check-margin"
-                        (change)="updateCheckList($event)">Check me! {{irei}}</mat-checkbox>
+                    <mat-checkbox [formControl]="statusConfirmacao" class="check-margin"
+                        (change)="updateCheckList($event)" ></mat-checkbox>
                     <!-- <mat-checkbox class="example-margin" [disabled]="true">Disabled</mat-checkbox> -->
                 </section>
 
@@ -27,3 +27,4 @@
         <button mat-button (click)="onCancelar()">Cancelar</button>
     </div>
 </section>
+
