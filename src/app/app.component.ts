@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dnz-frontend';
+  title = 'listacasamento-front';
   showFiller = false;
   onkeypress(event: any){
     if(event.charCode == 99){}

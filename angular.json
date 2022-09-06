@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dnz-frontend": {
+    "listacasamento-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dnz-frontend",
+            "outputPath": "dist/listacasamento-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dnz-frontend:build:production"
+              "browserTarget": "listacasamento-front:build:production"
             },
             "development": {
-              "browserTarget": "dnz-frontend:build:development"
+              "browserTarget": "listacasamento-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dnz-frontend:build"
+            "browserTarget": "listacasamento-front:build"
           }
         },
         "test": {
@@ -107,5 +107,5 @@
       }
     }
   },
-  "defaultProject": "dnz-frontend"
+  "defaultProject": "listacasamento-front"
 }

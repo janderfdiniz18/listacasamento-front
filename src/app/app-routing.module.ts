@@ -9,7 +9,7 @@ const routes: Routes = [
      component: ListaConvidadosComponent,
   },
   {
-    path: 'noivos',
+    path: 'noivos/:codigo',
     component: NoivosComponent,
  }
 ];
