@@ -48,22 +48,8 @@ export class ListaConvidadosComponent implements OnInit {
       status: false
     }]
     console.log(this.convidadoListaForm.value.convidado);
-    const convidados = [
-      {
-        "codigo": codigo,
-        "dataConfirmacao": "2022-08-24",
-        "nomeConvidado": "Convidado2",
-        "status": true
-      },
-      {
-        "codigo": codigo,
-        "dataConfirmacao": "2022-08-24",
-        "nomeConvidado": "Convidado1",
-        "status": true
-      }
-    ]
-
-    this.rest.postConvidados(convidados).subscribe(result => { console.log(result) });
+    
+    this.rest.postConvidados(this.convidadoListaForm.value.convidado).subscribe(result => { console.log(result) });
   }
   createPedido() {
     console.log(this.convidadoListaForm.value.nomeConvidado)
