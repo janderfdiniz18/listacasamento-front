@@ -1,0 +1,26 @@
+.formLista {
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.556);
+    text-align: center;
+    color: black;
+    padding: 2%;
+}
+
+.confirm {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    font-family: cursive;
+    text-align: center;
+    font-size: 4rem;
+}
+
+p {
+    font-family: cursive;
+    text-align: center;
+}

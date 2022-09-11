@@ -1,11 +1,10 @@
-
 <mat-drawer-container class="example-container" autosize>
 
-  <mat-drawer #drawer class="example-sidenav" mode="over">
-   
-    
-  </mat-drawer>
-  <mat-toolbar class="tool-bar-fixed">
+  <!-- <mat-drawer #drawer class="example-sidenav" mode="over">
+
+
+  </mat-drawer> -->
+  <!-- <mat-toolbar class="tool-bar-fixed">
     <mat-toolbar-row>
       <button mat-icon-button class="example-icon" (click)="drawer.toggle()"
         aria-label="Example icon-button with menu icon">
@@ -17,24 +16,25 @@
         <mat-icon>share</mat-icon>
       </button>
     </mat-toolbar-row>
-  </mat-toolbar>
-  <header style="margin-top: 5%;" class="masthead">
-    <div>
-        <div class="container">
-            <div class="masthead-subheading">Bem vindo a Lista de Casamento</div>
-            <div class="masthead-heading text-uppercase">Jander &amp; Ellen</div>
+  </mat-toolbar> -->
+  <header class="masthead">
+    <!-- <div>
+      <div class="container">
+        <div class="masthead-subheading">Bem vindo a Lista de Casamento</div>
+        <div class="masthead-heading text-uppercase">Jander &amp; Ellen</div>
 
-            <a class="btn btn-primary btn-xl text-uppercase" href="#services">Continuar ...</a>
-        </div>
-    </div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Continuar ...</a>
+      </div>
+    </div> -->
+    <router-outlet>
+    </router-outlet>
+  </header>
 
-</header>
-  <router-outlet>
-  </router-outlet>
   <!-- <div class="example-sidenav-content">
     <button type="button" mat-button >
       Toggle sidenav
     </button>
   </div> -->
+ 
 
 </mat-drawer-container>

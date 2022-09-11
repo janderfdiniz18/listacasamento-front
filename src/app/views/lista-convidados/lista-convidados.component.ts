@@ -10,8 +10,8 @@ import { ListaconvidadoService } from 'src/app/shared/service/listaconvidado.ser
 })
 export class ListaConvidadosComponent implements OnInit {
   public convidadoListaForm!: FormGroup;
-  irei!: string;
-  lista!: any;
+  lista: any =[];
+  statusDis!: boolean;
   nomeConvidado = new FormControl();
   statusConfirmacao = new FormControl();
   toppings = this._formBuilder.group({
@@ -19,6 +19,7 @@ export class ListaConvidadosComponent implements OnInit {
     extracheese: false,
     mushroom: false,
   });
+  convidadosPresenca = [];
   constructor(
     private _formBuilder: FormBuilder,
     private fb: FormBuilder,
@@ -26,30 +27,24 @@ export class ListaConvidadosComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.convidadoListaForm = this.fb.group({
-      // dataPedido: [this.datePipe.transform(this.myDate, 'dd-MM-yyyy HH:mm'), [Validators.required]],      
-      convidado: ['', [Validators.required]]
-    });
+   
     
     let  cogidoUrl = '';
     this.route.params.subscribe( param => cogidoUrl = param.codigo);
     const conv = this.rest.getListaConvidado(cogidoUrl).subscribe(data => {
       this.lista = data;
+      this.statusDis = this.lista[0].status;
+      console.log(this.statusDis)
+      
+    console.log(this.lista)
      });
      
-     
   }
+  
 
-  salvarPresenca() {
-    const codigo = this.codigoFamilia();
-    console.log(codigo)
-    this.convidadoListaForm.value.convidado = [{
-      nomeConvidado: this.nomeConvidado.value,
-      status: false
-    }]
-    console.log(this.convidadoListaForm.value.convidado);
+  salvarPresenca() {      
     
-    this.rest.postConvidados(this.convidadoListaForm.value.convidado).subscribe(result => { console.log(result) });
+    this.rest.putConvidados(this.lista).subscribe(result => { console.log(result) });
   }
   createPedido() {
     console.log(this.convidadoListaForm.value.nomeConvidado)
@@ -58,14 +53,16 @@ export class ListaConvidadosComponent implements OnInit {
 
   }
 
-  updateCheckList(e: any) {
-    console.log(e);
-    console.log(this.toppings.value)
-    this.irei = "vou";
+  updateConfirmList(e: any, i:number) {
+    this.lista[i].statusConfirmacao = true
+  }
+  updateCancelList(e: any, i:number) {
+    this.lista[i].statusConfirmacao = false
+    console.log(this.lista)
   }
   codigoFamilia() {
     var result = '';
-    var characters = 'janderellencasamento24102022987456';
+    var characters = 'janderellen24102022';
     var charactersLength = characters.length;
     for (var i = 0; i < 5; i++) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength))
