@@ -1,6 +1,6 @@
 
 
-.masthead {
+header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
@@ -11,8 +11,6 @@
   background-position: center center;
   background-size: cover;
 }
-
-
 
 p{
   font-family: cursive;

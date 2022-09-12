@@ -6,7 +6,7 @@
     padding: 2%;
 }
 .color-back{
-    background-color: rgba(0, 0, 0, 0.582);
+    background-color: rgb(202 161 133 / 30%);
   }
 
   .whats{
@@ -32,13 +32,6 @@ p {
     text-shadow: 0.1em 0.1em 0.2em black;
 }
 
-.example-section {
-    margin: 12px 0;
-  }
-  
-  .example-margin {
-    margin: 0 12px;
-  }
 
   .allChecks {
     margin-left: 15px;
