@@ -1,13 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ThemePalette } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';
 import { ListaconvidadoService } from 'src/app/shared/service/listaconvidado.service';
+
+export interface Task {
+  nomeConvidado: string;
+  statusConfirmacao: boolean;
+  color: ThemePalette;
+  subtasks?: Task[];
+}
+
 @Component({
   selector: 'app-lista-convidados',
   templateUrl: './lista-convidados.component.html',
   styleUrls: ['./lista-convidados.component.css']
 })
+
+
 export class ListaConvidadosComponent implements OnInit {
   public convidadoListaForm!: FormGroup;
   lista: any =[];
@@ -19,32 +30,46 @@ export class ListaConvidadosComponent implements OnInit {
     extracheese: false,
     mushroom: false,
   });
+
+  task!: Task;
+  
   convidadosPresenca = [];
   constructor(
     private _formBuilder: FormBuilder,
     private fb: FormBuilder,
     private rest: ListaconvidadoService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) { 
 
-  ngOnInit(): void {
-   
-    
-    let  cogidoUrl = '';
+      let  cogidoUrl = '';
     this.route.params.subscribe( param => cogidoUrl = param.codigo);
-    const conv = this.rest.getListaConvidado(cogidoUrl).subscribe(data => {
+    this.rest.getListaConvidado(cogidoUrl).subscribe(data => {
       this.lista = data;
       this.statusDis = this.lista[0].status;
       console.log(this.statusDis)
+      this.task = {
+        nomeConvidado: 'Todos',
+        statusConfirmacao: false,
+        color: 'primary',
+        subtasks: this.lista,
+      };
       
-    console.log(this.lista)
      });
+     console.log(this.lista)
+    }
+
+  ngOnInit(): void {
      
   }
   
+ 
+
+  popularCheck(lista: any){
+    
+  }
 
   salvarPresenca() {      
-    
-    this.rest.putConvidados(this.lista).subscribe(result => { console.log(result) });
+    console.log(this.task);
+    // this.rest.putConvidados(this.lista).subscribe(result => { console.log(result) });
   }
   createPedido() {
     console.log(this.convidadoListaForm.value.nomeConvidado)
@@ -68,6 +93,27 @@ export class ListaConvidadosComponent implements OnInit {
       result += characters.charAt(Math.floor(Math.random() * charactersLength))
     }
     return result;
+  }
+
+  allComplete: boolean = false;
+
+  updateAllComplete() {
+    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.statusConfirmacao);
+  }
+
+  someComplete(): boolean {
+    if (this.task.subtasks == null) {
+      return false;
+    }
+    return this.task.subtasks.filter(t => t.statusConfirmacao).length > 0 && !this.allComplete;
+  }
+
+  setAll(statusConfirmacao: boolean) {
+    this.allComplete = statusConfirmacao;
+    if (this.task.subtasks == null) {
+      return;
+    }
+    this.task.subtasks.forEach(t => (t.statusConfirmacao = statusConfirmacao));
   }
 
 }

@@ -1,60 +1,85 @@
-<section class="page-section " id="listaConvidado">
-    <form class="example-form">
-        <div *ngFor="let item of lista; let i = index" class="formLista">
-            <div>
-                <mat-form-field class="col input-right">
-                    <mat-label>Convidado</mat-label>
-                    <input matInput #convidado name="nomeConvidado" id="{{item.id}}" value="{{item.nomeConvidado}}">
-                </mat-form-field>
-            </div>
-            <!-- <mat-form-field floatLabel="always" class="input-right">
-                    <input matInput type="text" name="nomeConvidado" >
-                </mat-form-field> -->
-            <!-- <mat-form-field floatLabel="always" class="input-right"> -->
-            <div>
-                <div *ngIf="item.statusConfirmacao;else naoconfirmado">
-                    <p style="color: green;"> Eu vou</p>
-                </div>
-                <div *ngIf="!item.statusConfirmacao && item.statusConfirmacao != null">
-                    <p style="color: green;"> Eu não vou</p>
-                </div>
-                <ng-template #naoconfirmado>
-                    <div *ngIf="statusDis">
-                        <section class="example-section">
-                            <mat-checkbox class="check-margin" id="{{i}}" (change)="updateConfirmList($event, i)">
-                                Confirmar
-                            </mat-checkbox>
-                            <!-- <mat-checkbox class="example-margin" [disabled]="true">Disabled</mat-checkbox> -->
-                        </section>
+<section class="page-section example-section " id="listaConvidado">
+    <form>
+        <div class="container color-back">
+            <p *ngIf="statusDis"> Confirmação de Presença <mat-checkbox class="allChecks" [checked]="allComplete"
+                    [color]="task.color" [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+                    {{task.nomeConvidado}}
+                </mat-checkbox>
+            </p>
+            <span>
+                <div *ngFor="let subtask of task.subtasks">
+                    <div *ngIf="subtask.statusConfirmacao;else naoconfirmado">
+                        <p>{{subtask.nomeConvidado}}</p>
                     </div>
-                </ng-template>
-                <div *ngIf="item.statusConfirmacao && item.status">
+                    <ng-template #naoconfirmado>
+                        <div class="checks">
+                            <mat-checkbox [(ngModel)]="subtask.statusConfirmacao" [color]="subtask.color"
+                                (ngModelChange)="updateAllComplete()">
+                                {{subtask.nomeConvidado}}
+                            </mat-checkbox>
+                        </div>
+                    </ng-template>
+                </div>
+                <div mat-dialog-actions *ngIf="statusDis">
+                    <button mat-raised-button style="margin: 2px; background-color: green;" color="primary"
+                        (click)="salvarPresenca()">Salvar</button>
+                    <button mat-raised-button style="margin: 2px;" color="warn" (click)="onCancelar()">Cancelar</button>
+                </div>
+            </span>
+        </div>
+
+    </form>
+
+    <!-- <div *ngFor="let item of lista; let i = index" class="formLista">
+        <div>
+            <mat-form-field class="col input-right">
+                <mat-label>Convidado</mat-label>
+                <input matInput #convidado name="nomeConvidado" id="{{item.id}}" value="{{item.nomeConvidado}}">
+            </mat-form-field>
+        </div>
+      
+        <div>
+            <div *ngIf="item.statusConfirmacao;else naoconfirmado">
+                <p style="color: green;"> Eu vou</p>
+            </div>
+            <div *ngIf="!item.statusConfirmacao && item.statusConfirmacao != null">
+                <p style="color: rgb(255, 0, 0);"> Eu não vou</p>
+            </div>
+            <ng-template #naoconfirmado>
+                <div *ngIf="statusDis">
                     <section class="example-section">
-                        <mat-checkbox class="check-margin" id="{{i}}" (change)="updateCancelList($event, i)">
-                            Cancelar
+                        <mat-checkbox class="check-margin" id="{{i}}" (change)="updateConfirmList($event, i)">
+                            Confirmar
                         </mat-checkbox>
-                        <!-- <mat-checkbox class="example-margin" [disabled]="true">Disabled</mat-checkbox> -->
                     </section>
                 </div>
+            </ng-template>
+            <div *ngIf="item.statusConfirmacao && item.status">
+                <section class="example-section">
+                    <mat-checkbox class="check-margin" id="{{i}}" (change)="updateCancelList($event, i)">
+                        Cancelar
+                    </mat-checkbox>
+                </section>
             </div>
         </div>
-        <button mat-stroked-button color="primary" (click)="salvarPresenca()">Nosso Site</button>
-    </form>
+    </div> -->
 
     <div class="confirm" *ngIf="!statusDis">
         <p style="color: rgb(255, 255, 255);">
-            Agradecemos a Confirmação
+            Agradecemos <br><br><br> a <br><br><br>Confirmação
         </p>
     </div>
-    <div mat-dialog-actions *ngIf="statusDis">
-        <button mat-stroked-button color="primary" (click)="salvarPresenca()">Salvar</button>
-        <button mat-button (click)="onCancelar()">Cancelar</button>
-    </div>
+
     <div>
         <div class="container">
-          <div class="container" style="background-color: #cf2f2fd6;">
-            <p class="whats"> Para mais informações ou Duvidas entre em contato pelo whatsapp  <a href="a"><button style="color:#3fb551; background-color:white" mat-stroked-button>Whats</button></a></p>
-          </div>
+            <div class="container" style="background-color: #cf2f2fd6;">
+                <p class="whats"> Para mais informações ou Duvidas entre em contato pelo <a style="color:#3fb551;"
+                        href="a"> WHATSAPP</a> ou acesse nosso site <a style="color:#3fb551;" href="a"> SITE</a></p>
+            </div>
         </div>
-      </div>
+    </div>
+</section>
+
+<section class="example-section">
+
 </section>

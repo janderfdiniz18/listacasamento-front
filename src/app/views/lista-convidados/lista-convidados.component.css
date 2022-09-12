@@ -5,7 +5,13 @@
     color: black;
     padding: 2%;
 }
+.color-back{
+    background-color: rgba(0, 0, 0, 0.582);
+  }
 
+  .whats{
+    font-size: 20px;
+  }
 .confirm {
     padding-top: 10.5rem;
     padding-bottom: 6rem;
@@ -23,4 +29,23 @@
 p {
     font-family: cursive;
     text-align: center;
+    text-shadow: 0.1em 0.1em 0.2em black;
 }
+
+.example-section {
+    margin: 12px 0;
+  }
+  
+  .example-margin {
+    margin: 0 12px;
+  }
+
+  .allChecks {
+    margin-left: 15px;
+  }
+  
+  .checks {
+    margin-top: 4px;
+    text-align: justify;
+    margin-left: 44%;
+  }
