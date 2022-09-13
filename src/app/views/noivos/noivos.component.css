@@ -9,9 +9,9 @@ table {
 
 td,
 th {
-  width: 25%;
   margin-left: 5% !important;
   margin-right: 5% !important;
+  text-align: center !important;
 }
 
 .mat-icon {
@@ -29,7 +29,7 @@ p {
 }
 
 .lista-container {
-  height: 350px;
+  height: 470px;
   overflow: auto;
   width: 90%;
   margin-left: 5%;

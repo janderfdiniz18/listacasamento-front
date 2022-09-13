@@ -12,7 +12,7 @@ import {MatSort} from '@angular/material/sort';
 })
 
 
-export class NoivosComponent implements OnInit {
+export class NoivosComponent implements AfterViewInit  {
 
   displayedColumns: string[] = ['Nome', 'Status', 'Link']
   dataSource!: MatTableDataSource<any>;
@@ -24,7 +24,7 @@ export class NoivosComponent implements OnInit {
   length = 100;
   pageSize = 10;
   pageSizeOptions: number[] = [5, 10, 25, 100];
-
+  pageIndex = 0;
   pageEvent!: PageEvent;
 
   constructor(
@@ -36,9 +36,15 @@ export class NoivosComponent implements OnInit {
     let cogidoUrl = '';
     this.route.params.subscribe(param => cogidoUrl = param.codigo);
     this.getConvidados(cogidoUrl);
+    this.dataSource.paginator = this.paginator;
   }
-
   
+
+  handlePageEvent(event: PageEvent) {
+    this.length = event.length;
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

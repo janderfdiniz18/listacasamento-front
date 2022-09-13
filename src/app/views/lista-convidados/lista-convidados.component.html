@@ -9,7 +9,7 @@
             <span>
                 <div *ngFor="let subtask of task.subtasks">
                     <div *ngIf="subtask.statusConfirmacao;else naoconfirmado">
-                        <p>{{subtask.nomeConvidado}}</p>
+                        <p class="pname">{{subtask.nomeConvidado}}</p>
                     </div>
                     <ng-template #naoconfirmado>
                         <div class="checks">
@@ -23,46 +23,12 @@
                 <div mat-dialog-actions *ngIf="statusDis">
                     <button mat-raised-button style="margin: 2px; background-color: green;" color="primary"
                         (click)="salvarPresenca()">Salvar</button>
-                    <button mat-raised-button style="margin: 2px;" color="warn" (click)="onCancelar()">Cancelar</button>
                 </div>
             </span>
         </div>
 
     </form>
 
-    <!-- <div *ngFor="let item of lista; let i = index" class="formLista">
-        <div>
-            <mat-form-field class="col input-right">
-                <mat-label>Convidado</mat-label>
-                <input matInput #convidado name="nomeConvidado" id="{{item.id}}" value="{{item.nomeConvidado}}">
-            </mat-form-field>
-        </div>
-      
-        <div>
-            <div *ngIf="item.statusConfirmacao;else naoconfirmado">
-                <p style="color: green;"> Eu vou</p>
-            </div>
-            <div *ngIf="!item.statusConfirmacao && item.statusConfirmacao != null">
-                <p style="color: rgb(255, 0, 0);"> Eu não vou</p>
-            </div>
-            <ng-template #naoconfirmado>
-                <div *ngIf="statusDis">
-                    <section class="example-section">
-                        <mat-checkbox class="check-margin" id="{{i}}" (change)="updateConfirmList($event, i)">
-                            Confirmar
-                        </mat-checkbox>
-                    </section>
-                </div>
-            </ng-template>
-            <div *ngIf="item.statusConfirmacao && item.status">
-                <section class="example-section">
-                    <mat-checkbox class="check-margin" id="{{i}}" (change)="updateCancelList($event, i)">
-                        Cancelar
-                    </mat-checkbox>
-                </section>
-            </div>
-        </div>
-    </div> -->
 
     <div class="confirm" *ngIf="!statusDis">
         <p style="color: rgb(255, 255, 255);">
@@ -72,12 +38,12 @@
 
     <div>
         <div class="container">
-            <div class="container" style="background-color: #b2635a94;">
-                <p class="whats"> Para mais informações ou Duvidas entre em contato pelo <a style="color:#3fb551;"
-                        href="https://api.whatsapp.com/send?phone=5512991207294"> WHATSAPP</a> ou acesse nosso <a
-                        style="color:#3fb551;" href="http://www.casamentojandereellen.com.br/"> SITE</a></p>
+            <div class="container infolink" >
+                <p class="whats"> Para mais informações ou duvidas entre em contato pelo <a style="color:#3fb551;"
+                        href="https://api.whatsapp.com/send?phone=5512991207294"><button mat-raised-button class="linkButton" color="primary"> WHATSAPP</button></a> ou acesse nosso <a
+                        style="color:#3fb551;" href="http://www.casamentojandereellen.com.br/"><button mat-raised-button class="linkButton" color="primary"> SITE</button></a></p>
             </div>
-            <a href="https://lista.havan.com.br/Convidado/ItensListaPresente/634979"><button mat-raised-button style="margin: 2px; background-color: green;" color="primary">Lista de Casamento</button></a>
+            <a href="https://lista.havan.com.br/Convidado/ItensListaPresente/634979"><button mat-raised-button class="linkButton" color="primary">Lista de Casamento</button></a>
         </div>
     </div>
 </section>

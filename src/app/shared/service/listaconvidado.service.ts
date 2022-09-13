@@ -18,7 +18,7 @@ export class ListaconvidadoService {
   constructor(private httpClient: HttpClient) { }
 
   public putConvidados(convidados: any){
-    let completeUrl = this.apiUrl + '/lista-casamento'
+    let completeUrl = this.apiUrl + '/lista-casamento/convidados'
     return this.httpClient.put<any>(completeUrl, convidados, this.httpOptions);
   }
 
