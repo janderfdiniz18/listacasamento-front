@@ -1,52 +1,58 @@
 .formLista {
-    width: 50%;
-    background-color: rgba(255, 255, 255, 0.556);
-    text-align: center;
-    color: black;
-    padding: 2%;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.556);
+  text-align: center;
+  color: black;
+  padding: 2%;
 }
-.color-back{
-    background-color: rgb(202 161 133 / 30%);
-  }
 
-  .whats{
-    font-size: 20px;
-  }
+.color-back {
+  background-color: rgb(202 161 133 / 30%);
+}
+
+.whats {
+  font-size: 20px;
+}
+
 .confirm {
-    padding-top: 2.5rem;
-    padding-bottom: 1rem;
-    text-align: center;
-    color: #fff;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center center;
-    background-size: cover;
-    font-family: cursive;
-    text-align: center;
-    font-size: 4rem;
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  font-family: cursive;
+  text-align: center;
+  font-size: 3.5rem;
 }
 
-.pname{
-    font-size: 1.5rem;
+.footer {
+  margin-top: 10px;
 }
 
-.linkButton{
-    padding: 6px;
-    background-color: rgba(11, 227, 11, 0.575);
-    box-shadow: -5px 5px 1em #000000d1;
+.pname {
+  font-size: 1.5rem;
 }
 
-.infolink{
-    margin-top: 3%;
-    padding: 2px;
-    background-color: #b2635a84;
-    box-shadow: inset 0 0 1em #bc8455c9, 0 0 1em #811f1fd1;
+.linkButton {
+  padding: 6px;
+  background-color: rgba(11, 227, 11, 0.575);
+  box-shadow: -5px 5px 1em #000000d1;
+}
+
+.infolink {
+  margin-top: 3%;
+  padding: 2px;
+  background-color: #b2635a84;
+  box-shadow: inset 0 0 1em #bc8455c9, 0 0 1em #811f1fd1;
 }
 
 p {
-    font-family: cursive;
-    text-align: center;
-    text-shadow: 0.1em 0.1em 0.2em black;
+  font-family: cursive;
+  text-align: center;
+  text-shadow: 0.1em 0.1em 0.2em black;
 }
 
 h1 {
@@ -55,13 +61,19 @@ h1 {
   text-shadow: 0.1em 0.1em 0.2em black;
 }
 
+h2 {
+  font-family: cursive;
+  text-align: center;
+  text-shadow: 0.1em 0.1em 0.2em black;
+}
 
-  .allChecks {
-    margin-left: 15px;
-  }
-  
-  .checks {
-    margin-top: 4px;
-    text-align: justify;
-    margin-left: 44%;
-  }
+
+.allChecks {
+  margin-left: 15px;
+}
+
+.checks {
+  margin-top: 4px;
+  text-align: justify;
+  margin-left: 44%;
+}

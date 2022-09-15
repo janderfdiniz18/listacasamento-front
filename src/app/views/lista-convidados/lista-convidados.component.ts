@@ -30,15 +30,17 @@ export class ListaConvidadosComponent implements OnInit {
     extracheese: false,
     mushroom: false,
   });
-
+  labelPosition: 'true' | 'false' = 'true';
   task!: Task;
 
+  allComplete: boolean = false;
   convidadosPresenca = [];
+
   constructor(
     private _formBuilder: FormBuilder,
     private fb: FormBuilder,
     private rest: ListaconvidadoService,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     let cogidoUrl = '';
@@ -57,7 +59,6 @@ export class ListaConvidadosComponent implements OnInit {
   }
 
   salvarPresenca() {
-    console.log(this.task);
     this.rest.putConvidados(this.lista).subscribe(result => { console.log(result) });
     window.location.reload();
   }
@@ -79,7 +80,6 @@ export class ListaConvidadosComponent implements OnInit {
     return result;
   }
 
-  allComplete: boolean = false;
 
   updateAllComplete() {
     this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.statusConfirmacao);

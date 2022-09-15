@@ -16,7 +16,7 @@ import { CadastroConvidadosComponent } from './cadastro-convidados/cadastro-conv
 
 export class NoivosComponent implements AfterViewInit  {
 
-  displayedColumns: string[] = ['Nome', 'Status', 'Link', 'index']
+  displayedColumns: string[] = ['Nome', 'StatusConfirmacao', 'Status', 'Link', 'index']
   dataSource!: MatTableDataSource<any>;
 
   table!: MatTable<any>;
@@ -28,7 +28,7 @@ export class NoivosComponent implements AfterViewInit  {
   pageSizeOptions: number[] = [5, 10, 25, 150];
   pageIndex = 0;
   pageEvent!: PageEvent;
-
+  cogidoUrl = '';
   constructor(
     private rest: ListaconvidadoService,
     private route: ActivatedRoute,
@@ -36,9 +36,9 @@ export class NoivosComponent implements AfterViewInit  {
   ) { }
 
   ngOnInit(): void {
-    let cogidoUrl = '';
-    this.route.params.subscribe(param => cogidoUrl = param.codigo);
-    this.getConvidados(cogidoUrl);
+    
+    this.route.params.subscribe(param => this.cogidoUrl = param.codigo);
+    this.getConvidados();
     this.dataSource.paginator = this.paginator;
   }
   
@@ -62,11 +62,19 @@ export class NoivosComponent implements AfterViewInit  {
     this.dataSource.sort = this.sort;
   }
 
-  getConvidados(codigo: string) {
-    this.rest.getListaConvidadosNoivos(codigo).subscribe(data => {
+  getConvidados() {
+    this.rest.getListaConvidadosNoivos(this.cogidoUrl ).subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+      console.log(this.dataSource)
+    });
+  }
+
+  getConvidadosStatus(status: boolean) {
+    this.rest.getListaPresenca(this.cogidoUrl, status ).subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     });
   }
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
