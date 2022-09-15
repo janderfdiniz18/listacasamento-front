@@ -27,12 +27,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { NoivosComponent } from './views/noivos/noivos.component';
+import { CadastroConvidadosComponent } from './views/noivos/cadastro-convidados/cadastro-convidados.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaConvidadosComponent,
-    NoivosComponent
+    NoivosComponent,
+    CadastroConvidadosComponent
   ],
   imports: [
     HttpClientModule,

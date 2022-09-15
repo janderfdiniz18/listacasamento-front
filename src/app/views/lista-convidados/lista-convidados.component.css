@@ -31,7 +31,7 @@
 }
 
 .linkButton{
-    margin: 6px;
+    padding: 6px;
     background-color: rgba(11, 227, 11, 0.575);
     box-shadow: -5px 5px 1em #000000d1;
 }
@@ -47,6 +47,12 @@ p {
     font-family: cursive;
     text-align: center;
     text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+h1 {
+  font-family: cursive;
+  text-align: center;
+  text-shadow: 0.1em 0.1em 0.2em black;
 }
 
 

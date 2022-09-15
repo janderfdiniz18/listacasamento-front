@@ -4,6 +4,8 @@ import { ListaconvidadoService } from 'src/app/shared/service/listaconvidado.ser
 import {AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { CadastroConvidadosComponent } from './cadastro-convidados/cadastro-convidados.component';
 
 @Component({
   selector: 'app-noivos',
@@ -14,7 +16,7 @@ import {MatSort} from '@angular/material/sort';
 
 export class NoivosComponent implements AfterViewInit  {
 
-  displayedColumns: string[] = ['Nome', 'Status', 'Link']
+  displayedColumns: string[] = ['Nome', 'Status', 'Link', 'index']
   dataSource!: MatTableDataSource<any>;
 
   table!: MatTable<any>;
@@ -23,13 +25,14 @@ export class NoivosComponent implements AfterViewInit  {
   @ViewChild(MatSort) sort!: MatSort;
   length = 100;
   pageSize = 10;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
+  pageSizeOptions: number[] = [5, 10, 25, 150];
   pageIndex = 0;
   pageEvent!: PageEvent;
 
   constructor(
     private rest: ListaconvidadoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +42,14 @@ export class NoivosComponent implements AfterViewInit  {
     this.dataSource.paginator = this.paginator;
   }
   
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CadastroConvidadosComponent, {
+      width: '700px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   handlePageEvent(event: PageEvent) {
     this.length = event.length;
