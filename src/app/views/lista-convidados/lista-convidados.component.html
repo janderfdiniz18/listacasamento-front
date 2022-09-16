@@ -10,9 +10,15 @@
                 <div style="padding: 3px;" *ngFor="let subtask of task.subtasks">
                     <div *ngIf="subtask.statusConfirmacao || statusDis == false;else naoconfirmado">
                         <div *ngIf="subtask.statusConfirmacao;else naovai">
-                            <p class="pname"> <mat-icon style="color: green;" matSuffix>check</mat-icon> {{subtask.nomeConvidado}}</p>
+                            <p class="pname">
+                                <mat-icon style="color: green;" matSuffix>check</mat-icon> {{subtask.nomeConvidado}}
+                            </p>
                         </div>
-                        <ng-template #naovai><p class="pname"><mat-icon style="color: red;" matSuffix>cancel</mat-icon> {{subtask.nomeConvidado}} </p> </ng-template>
+                        <ng-template #naovai>
+                            <p class="pname">
+                                <mat-icon style="color: red;" matSuffix>cancel</mat-icon> {{subtask.nomeConvidado}}
+                            </p>
+                        </ng-template>
                     </div>
                     <ng-template #naoconfirmado>
                         <div class="checks">
@@ -53,6 +59,10 @@
         </div> <br>
         <p class="whats"><a style="color:#3fb551;" href="http://www.casamentojandereellen.com.br/#listacasamento">
                 <button mat-raised-button class="linkButton" color="primary"> Site dos Noivos</button></a></p>
+        <p class="whats"><a style="color:#3fb551;" href="http://www.casamentojandereellen.com.br/#listacasamento">
+                <button mat-raised-button class="linkButton" color="primary"> Lista Presente</button></a></p>
+        <p class="whats"><a style="color:#3fb551;" href="http://www.casamentojandereellen.com.br/#contact">
+                <button mat-raised-button class="linkButton" color="primary"> Endereço</button></a></p>
         <!-- <a href="http://www.casamentojandereellen.com.br/#listacasamento"><button mat-raised-button class="linkButton" color="primary">Lista de Casamento</button></a> -->
     </div>
 </section>
