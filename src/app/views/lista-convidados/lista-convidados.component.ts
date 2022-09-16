@@ -64,17 +64,15 @@ export class ListaConvidadosComponent implements OnInit {
     window.location.reload();
   }
   cancelar(){
-    console.log(this.lista)
     this.rest.putConvidadoCancel(this.lista).subscribe(result => { console.log(result) });
     window.location.reload();
   }
 
-  updateConfirmList(e: any, i: number) {
-    this.lista[i].statusConfirmacao = true
+  updateConfirmList( i: number) {
+    this.lista[i].statusConfirmacao = false
   }
   updateCancelList(e: any, i: number) {
-    this.lista[i].statusConfirmacao = false
-    console.log(this.lista)
+    this.lista[i].statusConfirmacao = false.valueOf;
   }
   // codigoFamilia() {
   //   var result = '';
@@ -88,6 +86,9 @@ export class ListaConvidadosComponent implements OnInit {
 
 
   updateAllComplete() {
+    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.statusConfirmacao);
+  }
+  updateNaovou() {
     this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.statusConfirmacao);
   }
 
