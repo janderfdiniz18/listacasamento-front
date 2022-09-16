@@ -22,6 +22,11 @@ export class ListaconvidadoService {
     return this.httpClient.put<any>(completeUrl, convidados, this.httpOptions);
   }
 
+  public putConvidadoCancel(convidados: any){
+    let completeUrl = this.apiUrl + '/lista-casamento/convidados/cancelar'
+    return this.httpClient.put<any>(completeUrl, convidados, this.httpOptions);
+  }
+
   public postConvidados(convidados: any){
     let completeUrl = this.apiUrl + '/lista-casamento'
     return this.httpClient.post<any>(completeUrl, convidados, this.httpOptions);

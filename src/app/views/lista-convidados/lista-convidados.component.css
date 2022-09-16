@@ -28,6 +28,10 @@
   font-size: 3.5rem;
 }
 
+mat-icon {
+  margin-right: 5px;
+}
+
 .footer {
   margin-top: 10px;
 }

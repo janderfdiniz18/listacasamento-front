@@ -54,12 +54,18 @@ export class ListaConvidadosComponent implements OnInit {
         color: 'primary',
         subtasks: this.lista,
       };
-
+      console.log(this.lista)
+      console.log(this.statusDis )
     });
   }
 
   salvarPresenca() {
     this.rest.putConvidados(this.lista).subscribe(result => { console.log(result) });
+    window.location.reload();
+  }
+  cancelar(){
+    console.log(this.lista)
+    this.rest.putConvidadoCancel(this.lista).subscribe(result => { console.log(result) });
     window.location.reload();
   }
 
@@ -70,15 +76,15 @@ export class ListaConvidadosComponent implements OnInit {
     this.lista[i].statusConfirmacao = false
     console.log(this.lista)
   }
-  codigoFamilia() {
-    var result = '';
-    var characters = 'janderellen24102022';
-    var charactersLength = characters.length;
-    for (var i = 0; i < 5; i++) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength))
-    }
-    return result;
-  }
+  // codigoFamilia() {
+  //   var result = '';
+  //   var characters = 'janderellen24102022';
+  //   var charactersLength = characters.length;
+  //   for (var i = 0; i < 5; i++) {
+  //     result += characters.charAt(Math.floor(Math.random() * charactersLength))
+  //   }
+  //   return result;
+  // }
 
 
   updateAllComplete() {

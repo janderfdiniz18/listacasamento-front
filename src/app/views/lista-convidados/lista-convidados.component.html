@@ -7,9 +7,12 @@
                 </mat-checkbox>
             </p>
             <span>
-                <div *ngFor="let subtask of task.subtasks">
-                    <div *ngIf="subtask.statusConfirmacao;else naoconfirmado">
-                        <p class="pname">{{subtask.nomeConvidado}}</p>
+                <div style="padding: 3px;" *ngFor="let subtask of task.subtasks">
+                    <div *ngIf="subtask.statusConfirmacao || statusDis == false;else naoconfirmado">
+                        <div *ngIf="subtask.statusConfirmacao;else naovai">
+                            <p class="pname"> <mat-icon style="color: green;" matSuffix>check</mat-icon> {{subtask.nomeConvidado}}</p>
+                        </div>
+                        <ng-template #naovai><p class="pname"><mat-icon style="color: red;" matSuffix>cancel</mat-icon> {{subtask.nomeConvidado}} </p> </ng-template>
                     </div>
                     <ng-template #naoconfirmado>
                         <div class="checks">
@@ -23,6 +26,9 @@
                 <div mat-dialog-actions *ngIf="statusDis">
                     <button mat-raised-button style="margin: 2px; background-color: green;" color="primary"
                         (click)="salvarPresenca()">Salvar</button>
+
+                    <button mat-raised-button style="margin: 2px; background-color: rgb(226, 3, 3);" color="primary"
+                        (click)="cancelar()">Não Iremos</button>
                 </div>
             </span>
         </div>
@@ -36,18 +42,17 @@
         </p>
     </div>
 
-        <div class="container">
-            <div class="container infolink">
-                <p class="whats"> Para mais informações ou duvidas entre em contato pelo <br> <a style="color:#3fb551;"
-                        href="https://api.whatsapp.com/send?phone=5512991207294"><button mat-raised-button
-                            class="linkButton" color="primary"> WHATSAPP</button></a>
-                            <h2> Casamento 29/10/2022</h2>
-                            <h1> Confirmar Presença até 25/09/2022</h1>
-                           
-            </div> <br>
-            <p class="whats"><a style="color:#3fb551;"
-                href="http://www.casamentojandereellen.com.br/#listacasamento">
-            <button mat-raised-button class="linkButton" color="primary"> Site dos Noivos</button></a></p>
-            <!-- <a href="http://www.casamentojandereellen.com.br/#listacasamento"><button mat-raised-button class="linkButton" color="primary">Lista de Casamento</button></a> -->
-        </div>
+    <div class="container">
+        <div class="container infolink">
+            <p class="whats"> Para mais informações ou duvidas entre em contato pelo <br> <a style="color:#3fb551;"
+                    href="https://api.whatsapp.com/send?phone=5512991207294"><button mat-raised-button
+                        class="linkButton" color="primary"> WHATSAPP</button></a>
+            <h2> Casamento 29/10/2022</h2>
+            <h1> Confirmar Presença até 25/09/2022</h1>
+
+        </div> <br>
+        <p class="whats"><a style="color:#3fb551;" href="http://www.casamentojandereellen.com.br/#listacasamento">
+                <button mat-raised-button class="linkButton" color="primary"> Site dos Noivos</button></a></p>
+        <!-- <a href="http://www.casamentojandereellen.com.br/#listacasamento"><button mat-raised-button class="linkButton" color="primary">Lista de Casamento</button></a> -->
+    </div>
 </section>
