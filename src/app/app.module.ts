@@ -29,7 +29,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { NoivosComponent } from './views/noivos/noivos.component';
 import { CadastroConvidadosComponent } from './views/noivos/cadastro-convidados/cadastro-convidados.component';
 import { ListaPresencaComponent } from './views/lista-presenca/lista-presenca.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +62,8 @@ import { ListaPresencaComponent } from './views/lista-presenca/lista-presenca.co
     MatSidenavModule,
     MatRadioModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule
   ],
   providers: [
     LocalDateTimePipe

@@ -69,8 +69,8 @@ export class NoivosComponent implements AfterViewInit  {
     });
   }
 
-  getConvidadosStatus(status: boolean) {
-    this.rest.getListaPresenca(this.cogidoUrl, status ).subscribe(data => {
+  getConvidadosStatus(status: boolean, presenca: boolean) {
+    this.rest.getListaPresenca(this.cogidoUrl, status, presenca ).subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     });
   }

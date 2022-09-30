@@ -40,8 +40,8 @@ export class ListaconvidadoService {
     let completeUrl = this.apiUrl + '/lista-casamento/noivos/'
     return this.httpClient.get<any>(completeUrl + codigo);
   }
-  public getListaPresenca(codigo: string, presenca: boolean): Observable<any>{
+  public getListaPresenca(codigo: string, status: boolean, presenca: boolean): Observable<any>{
     let completeUrl = this.apiUrl + '/lista-casamento/noivos/'
-    return this.httpClient.get<any>(completeUrl + codigo+ '/'+ presenca);
+    return this.httpClient.get<any>(completeUrl + codigo+ '/'+ status + '/'+ presenca);
   }
 }

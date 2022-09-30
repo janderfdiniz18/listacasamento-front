@@ -6,12 +6,15 @@
             <mat-label>Filter</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
         </mat-form-field> 
-        <button mat-raised-button class="demo-button" (click)="getConvidadosStatus(false)">
+        <button mat-raised-button class="demo-button" (click)="getConvidadosStatus(true, false)">
             Não confirmados
         </button>
-        <button mat-raised-button class="demo-button" (click)="getConvidadosStatus(true)">
+        <button mat-raised-button class="demo-button" (click)="getConvidadosStatus(false, true)">
             Confirmados
-        </button>       
+        </button>   
+        <button mat-raised-button class="demo-button" (click)="getConvidadosStatus(false, false)">
+            Não Iram
+        </button>    
     </div>
 
     <div class="mat-elevation-z8 center">
