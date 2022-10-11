@@ -3,33 +3,33 @@
         <h2>Confirmação de Presença</h2>
         <div class="container color-back">
             <p *ngIf="statusDis"> 
-                <mat-checkbox class="allChecks" [checked]="allComplete" [color]="task.color"
+                <mat-checkbox class="allChecks" [checked]="allComplete" [color]="guest.color"
                     [indeterminate]="someComplete()" (change)="setAll($event.checked)">
-                    {{task.nomeConvidado}}
+                    {{guest.nomeConvidado}}
                 </mat-checkbox>
             </p>
             <span>
-                <div style="padding: 3px;" *ngFor="let subtask of task.subtasks;let i = index">
-                    <div *ngIf="subtask.statusConfirmacao || statusDis == false;else naoconfirmado">
-                        <div *ngIf="subtask.statusConfirmacao;else naovai">
+                <div style="padding: 3px;" *ngFor="let convidado of guest.convidados;let i = index">
+                    <div *ngIf="convidado.statusConfirmacao || statusDis == false;else naoconfirmado">
+                        <div *ngIf="convidado.statusConfirmacao;else naovai">
                             <p class="pname">
-                                <mat-icon style="color: green;" matSuffix>check</mat-icon> {{subtask.nomeConvidado}}
+                                <mat-icon style="color: green;" matSuffix>check</mat-icon> {{convidado.nomeConvidado}}
                             </p>
                         </div>
                         <ng-template #naovai>
                             <p class="pname">
-                                <mat-icon style="color: red;" matSuffix>cancel</mat-icon> {{subtask.nomeConvidado}}
+                                <mat-icon style="color: red;" matSuffix>cancel</mat-icon> {{convidado.nomeConvidado}}
                             </p>
                         </ng-template>
                     </div>
                     <ng-template #naoconfirmado>
                         <div class="checks">
-                            <h3>{{subtask.nomeConvidado}} </h3>
-                            <mat-checkbox class="chebox" [(ngModel)]="subtask.statusConfirmacao" id="{{i}} 2" color="red"
+                            <h3>{{convidado.nomeConvidado}} </h3>
+                            <mat-checkbox class="chebox" [(ngModel)]="convidado.statusConfirmacao" id="{{i}} 2" color="red"
                                 (ngModelChange)="updateAllComplete()">
                                Confirmar
                             </mat-checkbox>
-                            <mat-checkbox class="chebox" [(ngModel)]="subtask.statusConfirmacao" id="{{i}}" [color]="subtask.color"
+                            <mat-checkbox class="chebox" [(ngModel)]="convidado.statusConfirmacao" id="{{i}}" [color]="convidado.color"
                                 (ngModelChange)="updateConfirmList(i)">
                                 Não irei
                             </mat-checkbox>
@@ -64,9 +64,10 @@
         </div> <br>
         <p class="whats"><a style="color:#3fb551;" href="http://www.casamentojandereellen.com.br/#listacasamento">
                 <button style="margin: 5px; margin-right: 2%;" mat-raised-button class="linkButton" color="primary"> Site dos Noivos</button></a>
-        <a style="color:#3fb551;" href="http://www.casamentojandereellen.com.br/#listacasamento">
-                <button style="margin: 5px; margin-right: 2%;" mat-raised-button class="linkButton" color="primary"> Lista de Presentes</button></a><a style="color:#3fb551;" href="https://lista.havan.com.br/Convidado/ItensListaPresente/634979">
+        <a style="color:#3fb551;" href="https://lista.havan.com.br/Convidado/ItensListaPresente/634979">
+                <button style="margin: 5px; margin-right: 2%;" mat-raised-button class="linkButton" color="primary"> Lista de Presentes</button></a>
+                <a style="color:#3fb551;" href="http://www.casamentojandereellen.com.br/#listacasamento">
                 <button style="margin: 5px; margin-right: 2%;" mat-raised-button class="linkButton" color="primary"> Endereço</button></a></p>
-        <!-- <a href="http://www.casamentojandereellen.com.br/#listacasamento"><button mat-raised-button class="linkButton" color="primary">Lista de Casamento</button></a> -->
+        <!-- <a href="https://lista.havan.com.br/Convidado/ItensListaPresente/634979"><button mat-raised-button class="linkButton" color="primary">Lista de Casamento</button></a> -->
     </div>
 </section>

@@ -65,7 +65,6 @@ export class NoivosComponent implements AfterViewInit  {
   getConvidados() {
     this.rest.getListaConvidadosNoivos(this.cogidoUrl ).subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
-      console.log(this.dataSource)
     });
   }
 

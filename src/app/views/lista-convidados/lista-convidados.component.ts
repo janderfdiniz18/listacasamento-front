@@ -5,11 +5,11 @@ import { ThemePalette } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';
 import { ListaconvidadoService } from 'src/app/shared/service/listaconvidado.service';
 
-export interface Task {
+export interface Convidado {
   nomeConvidado: string;
   statusConfirmacao: boolean;
   color: ThemePalette;
-  subtasks?: Task[];
+  convidados?: Convidado[];
 }
 
 @Component({
@@ -31,7 +31,7 @@ export class ListaConvidadosComponent implements OnInit {
     mushroom: false,
   });
   labelPosition: 'true' | 'false' = 'true';
-  task!: Task;
+  guest!: Convidado;
 
   allComplete: boolean = false;
   convidadosPresenca = [];
@@ -48,14 +48,12 @@ export class ListaConvidadosComponent implements OnInit {
     this.rest.getListaConvidado(cogidoUrl).subscribe(data => {
       this.lista = data;
       this.statusDis = this.lista[0].status;
-      this.task = {
+      this.guest = {
         nomeConvidado: 'Todos',
         statusConfirmacao: false,
         color: 'primary',
-        subtasks: this.lista,
+        convidados: this.lista,
       };
-      console.log(this.lista)
-      console.log(this.statusDis )
     });
   }
 
@@ -86,25 +84,25 @@ export class ListaConvidadosComponent implements OnInit {
 
 
   updateAllComplete() {
-    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.statusConfirmacao);
+    this.allComplete = this.guest.convidados != null && this.guest.convidados.every(t => t.statusConfirmacao);
   }
   updateNaovou() {
-    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.statusConfirmacao);
+    this.allComplete = this.guest.convidados != null && this.guest.convidados.every(t => t.statusConfirmacao);
   }
 
   someComplete(): boolean {
-    if (this.task.subtasks == null) {
+    if (this.guest.convidados == null) {
       return false;
     }
-    return this.task.subtasks.filter(t => t.statusConfirmacao).length > 0 && !this.allComplete;
+    return this.guest.convidados.filter(t => t.statusConfirmacao).length > 0 && !this.allComplete;
   }
 
   setAll(statusConfirmacao: boolean) {
     this.allComplete = statusConfirmacao;
-    if (this.task.subtasks == null) {
+    if (this.guest.convidados == null) {
       return;
     }
-    this.task.subtasks.forEach(t => (t.statusConfirmacao = statusConfirmacao));
+    this.guest.convidados.forEach(t => (t.statusConfirmacao = statusConfirmacao));
   }
 
 }
