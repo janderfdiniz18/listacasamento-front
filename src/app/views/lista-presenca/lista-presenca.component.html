@@ -1,15 +1,15 @@
 <p>lista-presenca works!</p>
-<!-- <mat-accordion *ngFor="let convidado of guest.convidados;let i = index" >
 
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                {{guest.nomeConvidado}}
-            </mat-panel-title>
-            <mat-panel-description>
-                Currently I am {{panelOpenState ? 'open' : 'closed'}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>{{convidado.nomeConvidado}}</p>
+<mat-accordion *ngFor="let convidado of convidadosFamilia;let i = index" >
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{convidado.codigo}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div *ngFor="let nome of convidado.condidados;let i = index">
+        <p>{{nome.nome}} <br> </p> <br>
+    </div>
     </mat-expansion-panel>
-</mat-accordion> -->
+
+  </mat-accordion>

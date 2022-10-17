@@ -15,19 +15,35 @@ export interface Familia {
   convidados?: Convidado[];
 }
 
+
 @Component({
   selector: 'app-lista-presenca',
   templateUrl: './lista-presenca.component.html',
   styleUrls: ['./lista-presenca.component.css']
 })
 export class ListaPresencaComponent implements OnInit {
-  lista: Array<Convidado> = [];
+  lista: Array<any> = [];
   listaCodigo: any = [];
   dataSource!: MatTableDataSource<any>;
   panelOpenState = false;
   cogidoUrl = '';
-  guest!: Convidado;
+  convidadosConfirmados!: Convidado;
   familia!: Familia;
+
+  convidadosFamilia =
+  [{
+  "codigo": "Familia1",
+  "condidados" :[{nome:"Jander"},{nome:"Ellen"},{nome:"Maite"}]
+},
+{
+  "codigo": "Familia2",
+  "condidados" :[{nome:"Leandro"},{nome:"Thalia"}]
+},
+{
+  "codigo": "Familia3",
+  "condidados" :[{nome:"Felipe"},{nome:"Fernanda"}]
+}] ;
+
   constructor(
     private rest: ListaconvidadoService,
     private route: ActivatedRoute,
@@ -36,10 +52,19 @@ export class ListaPresencaComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params.subscribe(param => this.cogidoUrl = param.codigo);
-  this.getConvidados(false, true);
+  this.getConvidadosStatus();
+  }
+
+  getConvidadosStatus() {
+    this.rest.getListaPresenca(this.cogidoUrl, false, true ).subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+      this.lista = this.dataSource.data;
+      
+      console.log(this.convidadosFamilia);
+    });
   }
   getConvidados(status: boolean, presenca: boolean) {    
-    this.rest.getListaPresenca(this.cogidoUrl, status, presenca ).subscribe(data => {
+    this.rest.getListaPresenca(this.cogidoUrl, false, true ).subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
 
       this.dataSource.filteredData.forEach((element, index) => {
